@@ -3,12 +3,14 @@
 
 ## Progress
  - 完全人工翻译，非机翻
- - 进度更新并不及时，请以已翻译的为准
- - 项目名前带“#”的未(完全)翻译
+ - 点击“给本项目做贡献”来支持我们
  
-Version | Progress
+1.16.0.2 | Progress
 -|-
- 1.16.0.2 | 23.6%(41/173)
+Script API Objects | 100%
+Script Components | 翻译中...
+Script Events | 0%
+Scripting System | 0%
  
 ## Recommend
 ***
