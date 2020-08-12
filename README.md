@@ -3,11 +3,12 @@
 
 ## Usage
 点点就会用了<br>
+Telegram [吹水摸鱼群](https://t.me/vjsdt) <br>
 如果你在Github看到这个Usage，请移步[**这里**](https://js-devdoc.amd.rocks/)<br>
 另外，请给我个star
  
 ## Recommend
-这里是本项目的 广 告 位 ，（广告费都没到账）
+（广告费害没到账）
 ***
 **吹爆**权威中文JavaScript文档 [>> Mozilla](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript)<br>
 更友好的JavaScript教学 [>> RUNOOB](https://www.runoob.com/js/js-tutorial.html)
