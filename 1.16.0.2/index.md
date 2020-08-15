@@ -221,7 +221,7 @@ ComponentIdentifier | 字符串 | 自定义组件的标识符。必须在命名�
 
 #### 示例代码 {docsify-ignore}
 注册自定义组件
-```
+```javascript
 const mySystem = server.registerSystem(0, 0);
 
  mySystem.initialize = function() {
@@ -247,7 +247,7 @@ JavaScript组件对象 | 包含以下字段的对象，以及组件中定义的�
 
 #### 示例代码 {docsify-ignore}
 创建自定义组件
-```
+```javascript
 let globals = {
   ready: false
 };
@@ -285,7 +285,7 @@ EntityObject | JavaScript实体对象 | 可以通过创建一个实体“createE
 
 #### 示例代码 {docsify-ignore}
 销毁实体中的组件
-```
+```javascript
 let globals = {
    myEntity: null
  };
@@ -336,7 +336,7 @@ EntityObject | JavaScript实体对象 | 可以通过创建一个实体“createE
 
 #### 示例代码 {docsify-ignore}
 从实体中获取指定的组件的数据
-```
+```javascript
 let globals = {
    ready: false
 };
@@ -374,7 +374,7 @@ EntityObject | JavaScript实体对象 | 希望修改的实体
 
 #### 示例代码 {docsify-ignore}
 更新实体的组件
-```
+```javascript
 let globals = {
   pig: null
 };
@@ -409,7 +409,7 @@ EntityObject | JavaScript实体对象 | 可以通过创建一个实体“createE
 
 #### 示例代码 {docsify-ignore}
 检索指定实体中是否存在指定组件。
-```
+```javascript
 let globals = {
    ready: false
 };
@@ -499,7 +499,7 @@ JavaScript查询器对象 | 提供查询ID的对象
 
 #### 示例代码 {docsify-ignore}
 注册一个查询器
-```
+```javascript
 const mySystem = server.registerSystem(0, 0);
 
 mySystem.initialize = function() {
@@ -526,7 +526,7 @@ JavaScript查询器对象 | 提供查询器ID的对象
 
 #### 示例代码 {docsify-ignore}
 注册一个带过滤器的查询器
-```
+```javascript
 const mySystem = server.registerSystem(0, 0);
 
 mySystem.initialize = function() {
@@ -545,7 +545,7 @@ Query | JavaScript查询器对象 | 提供查询器ID的对象
 
 #### 示例代码 {docsify-ignore}
 向查询器添加过滤器（组件）
-```
+```javascript
 let globals = {
   simpleQuery: null
 };
@@ -580,7 +580,7 @@ Query | JavaScript查询器对象 | 使用 registerQuery()注册的查询器
 
 #### 示例代码 {docsify-ignore}
 从查询器中获取实体
-```
+```javascript
 const mySystem = server.registerSystem(0, 0);
 
 mySystem.update = function() {
@@ -614,7 +614,7 @@ Query | JavaScript查询器对象 | 使用 registerQuery(...)注册的查询器
 
 #### 示例代码 {docsify-ignore}
 从查询器中获取实体
-```
+```javascript
 let globals = {
   spatialQuery: null
 };
@@ -685,7 +685,7 @@ EventIdentifier | 字符串 | 要进行数据传递的事件标识符，可以�
 
 #### 示例代码 {docsify-ignore}
 广播一个事件
-```
+```javascript
 const mySystem = client.registerSystem(0, 0);
 
 mySystem.initialize = function() {
@@ -712,7 +712,7 @@ EventIdentifier | 字符串 | 欲监听的事件的标识符，可以是内置�
 
 #### 示例代码 {docsify-ignore}
 注册监听事件
-```
+```javascript
 const mySystem = client.registerSystem(0, 0);
 
 mySystem.initialize = function() {
@@ -740,7 +740,7 @@ Message | 字符串 | 希望日志记录的内容。
 
 #### 示例代码 {docsify-ignore}
 日志
-```
+```javascript
 system.exampleFunction = function() {
   client.log("示例日志") 
 }; 
@@ -760,7 +760,7 @@ Callback | Json对象 | 命令执行后的回调对象
 Command | 字符串 | 欲执行的命令
 
 #### 示例代码 {docsify-ignore}
-```
+```javascript
 system.executeCommand("/fill ~ ~ ~ ~100 ~5 ~50 stone", (commandResultData) => this.commandCallback(commandResultData));
 
 system.commandCallback = function (commandResultData) {

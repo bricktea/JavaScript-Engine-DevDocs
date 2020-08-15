@@ -23,7 +23,7 @@ position | 向量 [a, b, c] | 在指向实体时返回实体的坐标，离开�
 
 ##### 代码示例
 响应“hit_result_changed”事件。
-```
+```javascript
 const mySystem = client.registerSystem(0, 0);
 
 mySystem.initialize = function() {
@@ -49,7 +49,7 @@ position | 向量 [a, b, c] | 在指向实体时返回实体的坐标，离开�
 
 ##### 代码示例
 响应“hit_result_continuous”事件。
-```
+```javascript
 const mySystem = client.registerSystem(0, 0);
 
 mySystem.initialize = function() {
@@ -75,7 +75,7 @@ position | 向量 [a, b, c] | 当指向一个实体或方块时返回该实体�
 
 ##### 代码示例
 响应“pick_hit_result_changed”事件。
-```
+```javascript
 const mySystem = client.registerSystem(0, 0);
 
 mySystem.initialize = function() {
@@ -101,7 +101,7 @@ position | 向量 [a, b, c] | 当指向一个实体或方块时返回该实体�
 
 ##### 代码示例
 响应“pick_hit_result_continuous”事件。
-```
+```javascript
 const mySystem = client.registerSystem(0, 0);
 
 mySystem.initialize = function() {
@@ -130,7 +130,7 @@ message | 字符串 | 要发送的消息数据
 
 ##### 代码示例
 触发消息事件
-```
+```javascript
 const mySystem = server.registerSystem(0, 0);
 
 mySystem.update = function() {
