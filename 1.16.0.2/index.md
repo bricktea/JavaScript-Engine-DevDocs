@@ -90,7 +90,7 @@ query_id | 整数 | [只读] 这是Query的唯一标识符。
 
 ### 1. getBlock() 
 获取方块的信息，指定方块需要在常加载区域内。
-#### 参数 {docsify-ignore} {docsify-ignore}
+#### 参数 {docsify-ignore}
 <table><tbody><tr> <th>名称</th> <th>类型</th><th>备注</th> </tr><tr>
 <td>PositionObject</td>
 <td>JavaScript对象</td>
@@ -111,7 +111,7 @@ query_id | 整数 | [只读] 这是Query的唯一标识符。
 <td>JavaScript常加载区域对象</td>
 <td>方块所在的常加载区域<br></td></tr></tbody></table>
 
-#### 返回值 {docsify-ignore} {docsify-ignore}
+#### 返回值 {docsify-ignore}
 
 类型 | 值（内容）
 -|-

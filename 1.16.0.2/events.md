@@ -8,7 +8,7 @@
 
 
 ### 监听事件
-以下事件可通过脚本引擎监听，您可以在脚本中设置监听它们并对其作出相应。
+以下事件可通过脚本引擎监听，您可以在脚本中设置监听它们并对其作出响应。
 
 #### 1. minecraft:client_entered_world
 每当玩家加入世界时就会触发此事件。事件数据为玩家的实体对象。
@@ -337,6 +337,6 @@ ride | JavaScript实体对象 | 正在被骑的实体
 名称 | 类型 | 备注
 -|-|-
 entity | JavaScript实体对象 | 骑手
-entity_is_being_destroyed | 布尔 | 如果为真，则骑手停止骑行是因为他们已经死亡
+entity_is_being_destroyed | 布尔 | 如果为真，则骑手停止骑行是因为他（们）已经死亡
 exit_from_rider | 布尔 | 如果为真，则骑手自行决定停止骑行
 switching_rides | 布尔 | 如果为真，则该骑手停止骑行是因为他正在骑另一个实体

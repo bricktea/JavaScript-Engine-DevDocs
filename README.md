@@ -3,8 +3,8 @@
 
 ## Usage
 点点就会用了<br>
-Telegram [**吹水摸鱼群**](https://t.me/vjsdt) <br>
-如果你在Github看到这个Usage，请移步[**这里**](https://js-devdoc.amd.rocks/)<br>
+Telegram [>> 吹水摸鱼群](https://t.me/vjsdt) <br>
+如果你在Github看到这个Usage，请移步[>> 这里](https://js-devdoc.amd.rocks/)<br>
 欢迎Star，欢迎Watch。
  
 ## Recommend
