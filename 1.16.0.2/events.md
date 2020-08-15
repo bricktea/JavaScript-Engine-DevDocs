@@ -228,7 +228,7 @@ entity | JavaScript实体对象 | 爆炸的实体
 名称 | 类型 | 备注
 -|-|-
 block_position | JavaScript对象 | 参与互动的方块坐标
-player | Entity JS API Object | 参与互动的玩家的实体对象
+player | JavaScript实体对象 | 参与互动的玩家的实体对象
 
 #### 5. minecraft:entity_acquired_item
 每当实体获取物品时，都会触发此事件。
@@ -239,7 +239,7 @@ acquired_amount | 整数 | 实体在此事件中获取的物品的总数
 acquisition_method | 字符串 | 实体获取物品的方式
 entity | JavaScript实体对象 | 获取物品的实体
 item_stack | JavaScript物品堆对象 | 获取的物品
-secondary_entity | JavaScript实体对象 | 如果存在，此实体在另一个实体获取物品前影响了获取。如：玩家完成了与村民的交易。“entity”属性是玩家，“secondary_entity”为村民
+secondary_entity | JavaScript实体对象 | 如果存在，此实体在另一个实体获取物品前影响了获取。如：玩家完成了与村民的交易。“entity”是玩家，“secondary_entity”为村民
 
 #### 6. minecraft:entity_attack
 只要一个实体受到另一个实体的攻击，就会触发此事件。但这不能保证被攻击实体的确受到了攻击的伤害。
@@ -267,7 +267,7 @@ previous_carried_item | JavaScript物品堆对象 | 在切换前实体手中的�
 entity | JavaScript实体对象 | 刚刚生成的实体
 
 #### 9. minecraft:entity_death
-每当实体死亡时，都会触发此事件。移除实体（例如使用destroyEntity）不会触发此事件。并非每个实体死亡都存在以下所有的字段与值。
+每当实体死亡时，都会触发此事件。移除实体（例如使用destroyEntity）不会触发此事件。并非每个实体死亡都具有以下所有的字段与值。
 ##### 参数
 名称 | 类型 | 备注
 -|-|-
@@ -294,7 +294,7 @@ entity | JavaScript实体对象 | 放置物品的实体
 item_stack | JavaScript物品堆对象 | 被放置的方块
 
 #### 12. minecraft:entity_equipped_armor
-只要实体在装甲插槽中新装备了盔甲，就会触发此事件。
+每当实体在装甲插槽中新装备了盔甲，都会触发此事件。
 ##### 参数
 名称 | 类型 | 备注
 -|-|-
@@ -340,3 +340,82 @@ entity | JavaScript实体对象 | 骑手
 entity_is_being_destroyed | 布尔 | 如果为真，则骑手停止骑行是因为他（们）已经死亡
 exit_from_rider | 布尔 | 如果为真，则骑手自行决定停止骑行
 switching_rides | 布尔 | 如果为真，则该骑手停止骑行是因为他正在骑另一个实体
+
+#### 17. minecraft:entity_tick
+只要实体被更新，就会触发此事件。玩家更新不会触发此事件。
+##### 参数
+名称 | 类型 | 备注
+-|-|-
+entity | JavaScript实体对象 | 被更新的实体
+
+#### 18. minecraft:entity_use_item
+每当实体使用物品时，都会触发此事件。
+##### 参数
+名称 | 类型 | 备注
+-|-|-
+entity | JavaScript实体对象 | 使用物品的实体
+item_stack | JavaScript物品堆对象 | 被使用的实体
+use_method | 字符串 | 使用的方式
+
+#### 19. minecraft:piston_moved_block
+每当活塞移动方块时都会触发此事件。
+##### 参数
+名称 | 类型 | 备注
+-|-|-
+block_position | JavaScript对象 | 被移动的方块的位置
+piston_action | 字符串 | 活塞执行的动作，“extended”（伸）或“retracted”（缩）
+piston_position | JavaScript对象 | 活塞的位置
+
+#### 20. minecraft:play_sound
+此事件用于播放声音效果。当前，声音只能在世界上的固定位置播放。以后的版本会支持全局播放声音和实体播放声音。
+##### 参数
+名称 | 类型 | 默认值 | 备注
+-|-|-|-
+pitch | 小数 | 1.0 | 音效的音高。1.0将以常规音高播放
+position | 向量 [a, b, c] | [0, 0, 0]	| 播放声音的位置
+sound | 字符串 |  | 要播放的音效的标识符，只能播放已应用资源包中的音效
+volume | 小数 | 1.0 | 音效的音量。值为1.0将以原音效的音量播放
+
+#### 21. minecraft:player_attacked_entity
+每当玩家攻击实体时都会触发此事件。
+##### 参数
+名称 | 类型 | 备注
+-|-|-
+attacked_entity | JavaScript实体对象 | 被玩家攻击的实体
+player | JavaScript实体对象 | 攻击实体的玩家
+
+#### 22. minecraft:player_destroyed_block
+每当玩家破坏方块时都会触发此事件。
+##### 参数
+名称 | 类型 | 备注
+-|-|-
+block_identifier | 字符串 | 被破坏的方块的标识符
+block_position | JavaScript对象 | 被破坏的方块的位置
+player | JavaScript实体对象 | 破坏方块的玩家
+
+#### 23. minecraft:player_placed_block
+每当玩家放置方块时都会触发此事件。
+##### 参数
+名称 | 类型 | 备注
+-|-|-
+block_position | JavaScript对象 | 被放置方块的位置
+player | JavaScript实体对象 | 放置方块的玩家
+
+#### 24. minecraft:projectile_hit
+每当弹射物击中物体时都会触发此事件。
+##### 参数
+名称 | 类型 | 备注
+-|-|-
+entity | JavaScript实体对象 | 被击中的实体（如果有）
+owner | JavaScript实体对象 | 发射弹射物的实体
+position | 向量 [a, b, c] | 弹射物击中的位置
+projectile | JavaScript实体对象 | 弹射物
+
+#### 25. minecraft:weather_changed
+天气变化时将触发此事件。
+##### 参数
+名称 | 类型 | 备注
+-|-|-
+dimension | 字符串 | 天气发生变化的维度的名称
+lightning | 布尔 | 新天气是否有闪电
+raining | 布尔 | 新天气是否下雨
