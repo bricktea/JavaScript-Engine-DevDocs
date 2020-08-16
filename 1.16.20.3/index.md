@@ -37,46 +37,46 @@
 ### 2. JavaScript 组件对象
 名称 | 类型 | 备注
 -|-|-
-__type__ | 字符串 | [只读] 这是对象的类型，为“component”。
+\_\_type\_\_ | 字符串 | [只读] 这是对象的类型，为“component”。
 data | JavaScript对象 | 这是组件的数据。
 
 ### 3. JavaScript 物品堆对象
 名称 | 类型 | 备注
 -|-|-
-__identifier__ | 字符串 | [只读] 这是命名空间对于指定实体的对象标识符。例如牛(cow)，标识符为minecraft:cow。
-__type__ | 字符串 | [只读] 这是对象的类型，为“item_stack”。
+\_\_identifier\_\_ | 字符串 | [只读] 这是命名空间对于指定实体的对象标识符。例如牛(cow)，标识符为minecraft:cow。
+\_\_type\_\_ | 字符串 | [只读] 这是对象的类型，为“item_stack”。
 count | 字符串 | [只读] 这是物品堆叠的数量。
 item | 字符串 | [只读] 这是物品的唯一标识符。
 
 ### 4. JavaScript 实体对象
 名称 | 类型 | 备注
 -|-|-
-__identifier__ | 字符串 | [只读] 这是命名空间对于指定实体的对象标识符。例如牛(cow)，标识符为minecraft:cow。
-__type__ | 字符串 | [只读] 这是对象的类型，可以是“entity”或“item_entity”。
+\_\_identifier\_\_ | 字符串 | [只读] 这是命名空间对于指定实体的对象标识符。例如牛(cow)，标识符为minecraft:cow。
+\_\_type\_\_ | 字符串 | [只读] 这是对象的类型，可以是“entity”或“item_entity”。
 id | 正整数 | [只读] 这是实体的唯一标识符。
 
 ### 5. JavaScript 存档对象
 名称 | 类型 | 备注
 -|-|-
-__type__ | 字符串 | [只读] 这是对象的类型，为“level”。
+\_\_type\_\_ | 字符串 | [只读] 这是对象的类型，为“level”。
 level_id | 整数 | [只读] 这是level的唯一标识符。
 
 ### 6. JavaScript 实体常加载区域对象
 名称 | 类型 | 备注
 -|-|-
-__type__ | 字符串 | [只读] 这是对象的类型，为 "entity_ticking_area"。
+\_\_type\_\_ | 字符串 | [只读] 这是对象的类型，为 "entity_ticking_area"。
 entity_ticking_area_id | 整数 | [只读] 这是实体常加载区域的唯一标识符。
 
 ### 7. JavaScript 存档常加载区域对象
 名称 | 类型 | 备注
 -|-|-
-__type__ | 字符串 | [只读] 这是对象的类型，为“level_ticking_area”。
+\_\_type\_\_ | 字符串 | [只读] 这是对象的类型，为“level_ticking_area”。
 level_ticking_area_id | 字符串 | [只读] 这是ticking area的唯一标识符。
 
 ### 8. JavaScript 查询器对象
 名称 | 类型 | 备注
 -|-|-
-__type__ | 字符串 | [只读] 这是对象的类型，为“query”。
+\_\_type\_\_ | 字符串 | [只读] 这是对象的类型，为“query”。
 query_id | 整数 | [只读] 这是Query的唯一标识符。
 
 ### Notes
