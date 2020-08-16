@@ -1,4 +1,4 @@
-# Ver 1.16.0.2 
+# Ver 1.16.20.3
 [原文档链接](https://bedrock.dev/docs/stable/Scripting)<br>
 Minecraft脚本引擎使用JavaScript语言。
 您可以编写JavaScript脚本并将其与行为包联系在一起，以监听和响应游戏事件，获取和修改实体所具有组件中的数据以及影响游戏的各种部分。

@@ -1,4 +1,4 @@
-# Ver 1.16.0.2 
+# Ver 1.16.20.3
 [原文档链接](https://bedrock.dev/docs/stable/Scripting)<br>
 在这里，您可以找到脚本可以监听和响应的事件列表。
 

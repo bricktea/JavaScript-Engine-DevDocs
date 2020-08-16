@@ -1,4 +1,4 @@
-# Ver 1.16.0.2 
+# Ver 1.16.20.3
 [原文档链接](https://bedrock.dev/docs/stable/Scripting)<br>
 在这里，你可以找到一些Script API关于对象和返回类型的定义
 

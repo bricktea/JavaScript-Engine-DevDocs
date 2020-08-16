@@ -1,4 +1,4 @@
-# Ver 1.16.0.2 
+# Ver 1.16.20.3
 [原文档链接](https://bedrock.dev/docs/stable/Scripting)<br>
 这里是Minecraft脚本引擎中可用的属性、附加属性和组件的文档。<br>
 有两种组件：服务端组件和客户端组件。我们将在后面的部分详细介绍它们的含义。<br>
