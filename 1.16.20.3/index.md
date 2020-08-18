@@ -731,7 +731,7 @@ mySystem.onClientEnteredWorld = function(eventData) {
 
 
 ### 1. log(消息)
-日志可以通过服务端或客户端来查看，并且日志可以被记录在“ContentLog”文件中。在Win10设备上，它位于'%APPDATA%\..\Local\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\logs '。
+日志可以通过服务端或客户端来查看，并且日志可以被记录在“ContentLog”文件中。在Win10设备上，它位于`%APPDATA%\..\Local\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\logs`。
 #### 参数 {docsify-ignore}
 
 名称 | 类型 | 备注
