@@ -1,8 +1,9 @@
-# Ver 1.16.100.4
+> Ver 1.16.100.4
 [原文档链接](https://bedrock.dev/docs/stable/Scripting)<br>
 在这里，你可以找到一些Script API关于对象和返回类型的定义
 
 ## 脚本API对象
+在这里，您可以找到由脚本API处理的对象的定义。
 
 ### 1. JavaScript 实体对象
 名称 | 类型 | 备注
