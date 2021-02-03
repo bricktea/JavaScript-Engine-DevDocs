@@ -24,7 +24,6 @@ system.exampleFunction = function() {
 ## 实体绑定
 
 ### 1. createEntity()
-创建一个类型为“custom”且没有组件的空实体。空实体不会出现在世界（level）中，并且具有空白标识符。<br>
 **Note:** 实体应该先在服务器上创建，随后发给客户端。如果您立即将刚创建的实体对象发送给客户端，则实体可能不会存在于客户端中。。
 #### 返回值 {docsify-ignore}
 
@@ -33,8 +32,6 @@ system.exampleFunction = function() {
 JavaScript实体对象 | 为新创建实体的对象
 
 ### 2. createEntity(类型, 模板标识符)
-创建一个实体并应用指定行为包（Json）中的模板，这使得您可以利用行为包作为创建实体的基础。该实体将具有指定Json文件中定义的所有组件，组件组和事件触发器。<br>
-仅在服务器上注册的脚本上起作用。<br>
 **Note:** 实体应该先在服务器上创建，随后发给客户端。如果您立即将刚创建的实体对象发送给客户端，则实体可能不会存在于客户端上。
 #### 参数 {docsify-ignore}
 
@@ -50,7 +47,7 @@ Type | 字符串 | 创建的实体的类型，只能是“entity”或“item_en
 JavaScript实体对象 | 新创建实体的对象
 
 ### 3. destroyEntity(实体)
-通过提供实体对象销毁指定的实体，如果指定实体存在于世界（level）中，它将被立即从世界中删除。这也使指定实体对象不再有效，你只应当在彻底不需要这个实体的时候使用该函数。这不令实体“死亡”—— 不会触发死亡事件。
+
 #### 参数 {docsify-ignore}
 
 名称 | 类型 | 备注
@@ -63,7 +60,7 @@ EntityObject | JavaScript实体对象 | 可以通过创建一个实体“createE
 布尔 | 实体是否删除成功？
 
 ### 4. isValidEntity(EntityObject)
-检查指定实体对象是否正对应有效的实体。
+
 #### 参数 {docsify-ignore}
 
 名称 | 类型 | 备注
@@ -81,7 +78,7 @@ EntityObject | JavaScript实体对象 | 可以通过创建一个实体“createE
 
 
 ### 1. registerComponent(组件标识符, 组件数据)
-使用此函数创建的组件仅在脚本引擎运行并且脚本加载时存在，反之则不存在。存在的组件可以在实体中被添加，删除和更新。
+
 #### 参数 {docsify-ignore}
 
 名称 | 类型 | 备注
@@ -106,7 +103,6 @@ const mySystem = server.registerSystem(0, 0);
 ```
 
 ### 2. createComponent(实体, 组件标识符)
-将组件添加到指定实体。在此之前请确保指定组件已注册，如果组件在此之前已添加到实体，则返回数据是那个已经存在的组件。<br><br>
 **[待求证]** 由于原文档语言过于迷惑或译者水平有限，本条目可能有错误的地方。
 #### 参数 {docsify-ignore}
 
@@ -146,7 +142,7 @@ mySystem.update = function() {
 ```
 
 ### 3. hasComponent(实体, 组件标识符)
-检索指定实体中是否存在指定组件。
+
 #### 参数 {docsify-ignore}
 
 名称 | 类型 | 备注
@@ -179,7 +175,7 @@ mySystem.update = function() {
 ```
 
 ### 4. getComponent(实体, 组件标识符)
-在实体中检索指定的组件。如果组件的确存在于实体中，则获得实体中该组件的数据。
+
 #### 参数 {docsify-ignore}
 
 名称 | 类型 | 备注
@@ -225,7 +221,7 @@ mySystem.update = function() {
 ```
 
 ### 5. applyComponentChanges(实体, 组件)
-将对组件做的更改应用回实体，并且立即生效。
+
 #### 参数 {docsify-ignore}
 
 名称 | 类型 | 备注
@@ -261,7 +257,7 @@ mySystem.update = function() {
 ```
 
 ### 6. destroyComponent(实体, 组件标识符)
-从给定的实体中删除指定的组件。目前这仅适用于自定义组件，不能删除为Json配置中的实体定义的组件。
+
 #### 参数 {docsify-ignore}
 
 名称 | 类型 | 备注
@@ -307,7 +303,6 @@ mySystem.update = function() {
 进行事件绑定后，在被绑定事件发生后脚本引擎会通知脚本以便脚本进行相应的反应。有关可以反应或触发的事件的列表详见文档的“事件”部分。
 
 ### 1. registerEventData(事件标识符, 事件数据)
-将指定事件注册到脚本引擎。您可以使用 createEventData()来创建事件数据，这将使用正确的字段和事件数据将其初始化，只有自定义事件需要初始化。
 
 #### 参数 {docsify-ignore}
 
@@ -323,7 +318,7 @@ EventIdentifier | 字符串 | 要注册的自定义组件标识符。必须使�
 布尔 | 是否成功注册事件？
 
 ### 2. createEventData(事件标识符)
-创建一个具有所有必需字段和事件默认数据的对象。
+
 #### 参数 {docsify-ignore}
 
 名称 | 类型 | 备注
@@ -337,7 +332,7 @@ EventIdentifier | 字符串 | 要创建的自定义组件标识符。必须使�
 JavaScript对象 | 包含事件数据（eventData）的JS对象。
 
 ### 3. listenForEvent(事件标识符, 回调函数)
-将一个对象注册成为事件的回调对象，当事件被广播时回调对象将被调用。
+
 #### 参数 {docsify-ignore}
 
 名称 | 类型 | 备注
@@ -368,7 +363,6 @@ mySystem.onClientEnteredWorld = function(eventData) {
 ```
 
 ### 4. broadcastEvent(事件标识符, 事件数据)
-使用脚本中的事件数据广播事件，并将数据传递给每个注册并监听事件的地方。<br><br>
 **[待求证]** 由于原文档语言过于迷惑或译者水平有限，本条目可能有错误的地方。
 #### 参数 {docsify-ignore}
 
@@ -667,8 +661,6 @@ z min | 整数 | 最小z的坐标值
 ## 斜杠命令
 
 ### 1. executeCommand(命令, 回调)
-在服务器上执行斜杠命令，命令输出的所有数据都将被格式化为Json并发送到回调函数上。
-#### 参数 {docsify-ignore}
 
 名称 | 类型 | 备注
 -|-|-

@@ -7,7 +7,6 @@
 
 
 ## 存档组件
-这些是属于存档的组件。它们只在存档对象中存在，并且不能被删除。您可以通过全局server对象获取该组件并更改其数据。
 
 ### 1. minecraft:ticking_areas
 
@@ -27,8 +26,7 @@ rain_time | 整数 | 雨将持续多长事件，以Tick为单位
 每个组件的字段基本匹配其Json对应项（但可能也有一些区别）。
 
 ### 1.minecraft:armor_container
-此组件表示实体的装甲物品栏的内容。该组件包含一个JavaScript物品堆叠对象数组，代表装甲栏里的插槽。<br>
-**Note:**目前对于脚本来说装甲栏是只读的。物品堆叠数组对应装甲插槽顺序从头到脚排序。
+
 ```javascript
 //此示例为在玩家攻击实体后检查玩家头盔盔甲插槽中是否有特定物品。
 system.listenForEvent("minecraft:player_attacked_entity", function(eventData) {
@@ -44,8 +42,6 @@ system.listenForEvent("minecraft:player_attacked_entity", function(eventData) {
 ```
 
 ### 2. minecraft:attack
-该组件控制实体的“攻击伤害”属性。可以通过该组件修改当前实体攻击伤害的最大值和最小值。一旦更改，立即生效。任何附加的攻击伤害（无论增加或减少）不受影响。
-#### 参数 {docsify-ignore}
 
 <table><tbody><tr><th>名称</th> <th>类型</th><th>备注</th></tr><tr>
 <td>damage</td>
@@ -62,8 +58,7 @@ system.listenForEvent("minecraft:player_attacked_entity", function(eventData) {
 <td>被攻击实体所受最小伤害值<br></td></tr></tbody></table></td></tr></tbody></table>
 
 ### 3. minecraft:container
-该组件表示方块容器信息。该组件包含一个JavaScript物品堆叠对象数组，这些数组代表容器中的插槽。该组件仅用于方块，有关实体的相似组件请参考“inventory”组件。
-**Note:**目前对于脚本来说装甲栏是只读的；物品堆叠数组对应装甲插槽从头到脚排序。
+
 ```javascript
 // 本示例将检查指定方块是否是容器方块（是否具有容器属性）
 let block; // 通过 getBlock()获取
@@ -74,9 +69,7 @@ if (has_container === true) {
 ```
 
 ### 4. minecraft:collision_box
-该组件控制实体的碰撞盒。碰撞盒规定实体的“实际的”占用空间。一旦更改，立即生效。<BR>
-**警告：**更改碰撞盒可能导致实体卡在方块里并窒息。
-#### 参数 {docsify-ignore}
+设置实体碰撞盒的宽高
 
 名称 | 类型 | 默认值 | 备注
 -|-|-|-
@@ -85,7 +78,6 @@ width | 小数 | 1.0 | 碰撞盒的宽度（以块为单位），若设置为负
 
 ### 5. minecraft:damage_sensor
 该组件定义当特定的实体被伤害时该实体时该实体所要触发的事件。
-#### 参数 {docsify-ignore}
 
 <table><tbody><tr> <th>名称</th> <th>类型</th><th>备注</th> </tr><tr>
 <td>triggers</td>
@@ -124,18 +116,18 @@ this.listenForEvent("minecraft:player_attacked_entity", function(eventData) {
 ```
 
 ### 6. minecraft:equipment
-定义实体使用的战利品表以定义它的装备。在更改被应用后，备选装备会重新滚动，然后新的实体装备会被选中。
-#### 参数 {docsify-ignore}
+设置实体的装备表
+
 名称 | 类型 | 备注
 -|-|-
 slot_drop_chance | 列表 | 一个可以从中掉落装备物品的插槽列表
 table | 字符串 | 装备表文件的路径，相对于行为包根目录
 
 ### 7. minecraft:equippable
-定义实体的装备行为
+定义为实体进行装备的行为
 #### slots {docsify-ignore}
 带有物品槽和可装备物品的列表
-##### 参数 {docsify-ignore}
+
 名称 | 类型 | 默认值 | 备注
 -|-|-|-
 accepted_items | 列表 |  | 可以装备进该槽位的物品的列表
@@ -147,7 +139,7 @@ slot | 整数 | 0 | 该槽位的槽位编号
 
 ### 8. minecraft:explode
 定义实体爆炸的方式
-#### 参数 {docsify-ignore}
+
 名称 | 类型 | 默认值 | 备注
 -|-|-|-
 breaks_blocks | 布尔 | 真 | 如果为真，则实体爆炸时将破坏方块
@@ -177,7 +169,6 @@ system.listenForEvent("minecraft:player_attacked_entity", function(eventData) {
 
 ### 10. minecraft:healable
 定义此实体能否被玩家交互活动所治愈。
-#### 参数 {docsify-ignore}
 
 <table><tbody><tr><th>名称</th><th>类型</th> <th>默认值</th><th>备注</th></tr><tr>
 <td>filters</td>
@@ -200,16 +191,14 @@ system.listenForEvent("minecraft:player_attacked_entity", function(eventData) {
 <td>可以用于治愈该实体的物品标识符。<br></td></tr></tbody></table></td></tr></tbody></table>
 
 ### 11. minecraft:health
-定义实体当前的生命值与最大的生命值。当组件被应用回实体，实体生命值立即发生变化，如果生命值≤0，实体将死亡。
-#### 参数 {docsify-ignore}
+
 名称 | 类型 | 默认值 | 备注
 -|-|-|-
 max | Integer | 10 | 实体的最大生命值
 value | Integer | 1 | 实体当前的生命值
 
 ### 12. minecraft:hotbar_container
-此组件表示玩家的常备物品栏。包含一个物品堆JavaScript对象数组，表示常备物品栏中的每个插槽。<br>
-**注意：**当前物品和容器只读。插槽从左到右排列。
+
 ```javascript
 // 此示例将在玩家攻击实体后检查玩家的第一个常备物品栏插槽中是否有特定物品
 system.listenForEvent("minecraft:player_attacked_entity", function(eventData) {
@@ -225,8 +214,7 @@ system.listenForEvent("minecraft:player_attacked_entity", function(eventData) {
 ```
 
 ### 13. minecraft:interact
-定义对于应用了该组件的实体，玩家如何与之交互。
-#### 参数 {docsify-ignore}
+
 
 <table><tbody><tr><th>名称</th><th>类型</th><th>默认值</th><th>备注</th></tr><tr>
 <td>add_items</td>
@@ -291,8 +279,7 @@ system.listenForEvent("minecraft:player_attacked_entity", function(eventData) {
 <td>如果为真，互动将消耗一个物品<br></td></tr></tbody></table>
 
 ### 14. minecraft:inventory
-定义实体的背包（大小，限制等），当前不允许更改实体背包的内容
-#### 参数 {docsify-ignore}
+
 名称 | 类型 | 默认值 | 备注
 -|-|-|-
 additional_slots_per_strength | 整数 | 0 | 每个额外的运输力度会给实体的背包增加的槽位的数量
@@ -303,8 +290,7 @@ private | 布尔 | 假 | 如果为真，只有实体可以访问背包
 restrict_to_owner | 布尔 | 假 | 如果为真，只有实体与其主人可以访问其背包
 
 ### 15. minecraft:inventory_container
-此组件代表实体的物品栏。该组件包含一个JavaScript物品堆叠对象数组，这些数组代表背包中的每个插槽。<br>
-**注意：**目前背包和物品是只读的。0-8是常备栏，9-16是背包第一行，17-24是中间行，25-32是最后一行。
+
 ```javascript
 // 此示例将在玩家攻击实体后检查玩家的第三个背包物品栏插槽中是否有特定物品
 system.listenForEvent("minecraft:player_attacked_entity", function(eventData) {
@@ -321,7 +307,7 @@ system.listenForEvent("minecraft:player_attacked_entity", function(eventData) {
 
 ### 16. minecraft:lookat
 定义一个实体盯另一个实体的行为。
-#### 参数 {docsify-ignore}
+
 名称 | 类型 | 默认值 | 备注
 -|-|-|-
 allow_invulnerable | 布尔 | 假 | 如果为真。无敌实体（如在创造模式的玩家）将被视为有效目标
@@ -332,8 +318,7 @@ search_radius | 小数 | 10 | 可理解为实体的视力。即实体与最远�
 set_target | 布尔 | 真 | 如果为真，则此实体会将攻击目标设置为正在看着它的实体。
 
 ### 17. minecraft:nameable
-该组件定义一个实体被应用该组件后能否被命名牌命名以及名字显示与否。另外，脚本引擎允许脚本直接通过属性“name”来命名实体。
-#### 参数 {docsify-ignore}
+
 
 <table><tbody><tr><th>名称</th><th>类型</th><th>默认值</th><th>备注</th></tr><tr>
 <td>allow_name_tag_renaming</td>
@@ -362,8 +347,7 @@ set_target | 布尔 | 真 | 如果为真，则此实体会将攻击目标设置�
 <td>当此实体获取“name_filter”中指定的名称时要调用的事件。<br></td></tr></tbody></table></td></tr></tbody></table>
 
 ### 18. minecraft:position
-该组件可以控制实体在世界上的当前位置。应用后，实体将被传送到指定的新位置。
-#### 参数 {docsify-ignore}
+
 名称 | 类型 | 默认值 | 备注
 -|-|-|-
 x | 小数 | 0.0 | 沿实体的X轴（东西方向）位置
@@ -371,16 +355,14 @@ y | 小数 | 0.0 | 沿实体的Y轴（高度）位置
 z | 小数 | 0.0 | 沿实体的Z轴（南北方向）位置
 
 ### 19. minecraft:rotation
-该组件使您可以控制实体的头部旋转。应用后，实体将按照指定的方向旋转。
-#### 参数 {docsify-ignore}
+
 名称 | 类型 | 默认值 | 备注
 -|-|-|-
 x | 小数 | 0.0 | 控制头部上下旋转
 y | 小数 | 0.0 | 控制实体身体平行于地面旋转
 
 ### 20. minecraft:shooter
-定义实体的远程攻击。注意，这不使实体可以使用远程攻击：它仅定义了远程攻击时使用的弹射物的类型。
-#### 参数 {docsify-ignore}
+
 名称 | 类型 | 默认值 | 备注
 -|-|-|-
 auxVal | 整数 | -1 | 将要应用到目标实体上的药水效果的 ID
@@ -388,7 +370,7 @@ def | 字符串 |  | 用作远程攻击的弹射物的实体标识符。实体�
 
 ### 21. minecraft:spawn_entity
 添加一个计时器，之后该实体将会生成另一个实体或物品（类似于鸡的生蛋行为）。
-#### 参数 {docsify-ignore}
+
 名称 | 类型 | 默认值 | 备注
 -|-|-|-
 filters | Minecraft 过滤器 |  | 指定的实体只会在过滤器结果为真时生成
@@ -406,8 +388,7 @@ spawn_sound | 字符串 | plop | 产生实体时播放的音效果的标识符
 ### 22. minecraft:tag
 
 ### 23. minecraft:teleport
-此组件可以控制实体的自身传送能力（类似于末影人）。如果您希望传送该实体，请使用“Position”组件。
-#### 参数 {docsify-ignore}
+
 名称 | 类型 | 默认值 | 备注
 -|-|-|-
 dark_teleport_chance | 小数 | 0.01 | 实体在黑暗中启动传送的几率
@@ -420,8 +401,7 @@ target_distance | 小数 | 16 | 实体在追逐目标时会传送的最远距离
 target_teleport_chance | 小数 | 1 | 实体启动传送的几率。1.0表示100％
 
 ### 24. minecraft:ticking_area_description
-常加载区域的备注
-#### 参数 {docsify-ignore}
+
 名称 | 类型 | 备注
 -|-|-
 is_circle | 布尔 | 如果为真，该区域的一个圆形。 否则为矩形。
@@ -431,8 +411,7 @@ origin | 向量 [a, b, c] | 区域的原点位置。
 radius | 向量 [a, b, c] | （如果区域是正方形）区域的半径。
 
 ### 25. minecraft:tick_world
-该组件是一个只读组件，允许用户访问常加载区域上的实体以及数据。
-#### 参数 {docsify-ignore}
+
 名称 | 类型 | 备注
 -|-|-
 distance_to_players | 小数 | 实体与玩家的距离
@@ -441,6 +420,7 @@ radius | 整数 | 常加载区块的半径
 ticking_area | JavaScript实体常加载区域对象 | 附加到该实体的常加载区域的实体
 
 ### 26. minecraft:transformation
+
 <table><tr><th>名称</th><th>类型</th><th>备注</th></tr><tr>
 <td>add</td>
 <td>Json对象</td>

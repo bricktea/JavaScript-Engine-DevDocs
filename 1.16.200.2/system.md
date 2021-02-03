@@ -4,7 +4,6 @@ Minecraft脚本引擎使用JavaScript语言。
 您可以编写JavaScript脚本并将其与行为包联系在一起，以监听和响应游戏事件，获取和修改实体所具有组件中的数据以及影响游戏的各种部分。
 
 ## 示例
-以下一些Minecraft爱好者提供的脚本演示，可以帮助您编写脚本。解压它们就可以获得js源代码，也可以将它们导入到游戏中游玩。
 
 示例 | 上次更新 | 下载
 -|-|-
@@ -12,7 +11,6 @@ Minecraft脚本引擎使用JavaScript语言。
 回合制RPG | 2018/10/24 | https://aka.ms/minecraftscripting_turnbased
 
 ## 已知问题
-这是Minecraft脚本引擎当前已知问题的列表
 
 问题 | 解决方法
 -|-
@@ -23,7 +21,6 @@ Minecraft脚本引擎使用JavaScript语言。
 在垂死的的实体上调用removeEntity可能会导致游戏崩溃
 
 ## 重大变化
-在我们完善Minecraft 脚本引擎的时候，我们会对脚本API做出一些更改。这可能会导致您的脚本无法正常工作，如果您存在此问题，请看此部分。
 
 类别 | 变化
 -|-
@@ -32,7 +29,6 @@ UI |
 事件 | 
 
 ## 先决条件
-您想制作自己的脚本？棒极了！在本节中，您将找到所需的最低和推荐软件列表。<br>
 **Note：**目前，仅Minecraft for Windows 10支持脚本。如果您尝试在不支持脚本的设备上使用脚本打开世界，则会看到一条错误消息，提示您无法进入世界。（译者注：EZ可无视）
 
 软件 | 至少需要 | 推荐
@@ -44,7 +40,6 @@ Minecraft | Win10版MC | Win10版MC
 存储空间 | 1GB（包括MC，文本编辑器和您的脚本） | 3GB（包括MC，文本编辑器和您的脚本）
 
 ## 快速开始
-首先，您需要下载最新的Vanilla Behavior Pack。您可以从这里获取：https://aka.ms/behaviorpacktemplate<br>
 下载行为包后，将其解压缩到文件夹中。在行为包中，您将找到scripts文件夹，其中包含要运行的所有脚本文件。<br>
 在脚本文件夹中，您将找到两个文件夹：一个用于客户端脚本，一个用于服务器脚本。<br>
 **Server 脚本** 这些脚本在游戏的服务器端运行。这包括在实体上生成新实体，添加组件或修改组件。<br>
@@ -77,11 +72,8 @@ vanilla_behavior_pack
 ```
 
 ## 脚本结构
-在本部分中，您可以快速了解可运行在Minecraft脚本引擎的JavaScript文件的基本结构。如果您想了解有关JavaScript的更多信息或希望学习基础教程，可以在以下Mozilla开发人员网络上查看官方文档：https://developer.mozilla.org/docs/Web/JavaScript<br>
 从某种意义上讲，它们是脚本的必需部分，也不是脚本唯一的部分。您可以根据喜好来写脚本，但在必须在合适的地方调用它们！（看下面）
 ### 1. System 注册 
-首先，我们需要为脚本注册系统。这定义了我们的脚本是要在游戏的客户端还是服务端上使用。总的来说，你要根据你是把脚本文件放到了client还是server文件夹里了来选择函数。你只需要在client或者server对象上调用registerSystem并传参你需要的API的版本就可以完成它。
-#### 参数 {docsify-ignore}
 
 名称 | 类型 | 备注
 -|-|-
@@ -99,7 +91,6 @@ let sampleServerSystem = server.registerSystem(0, 0);
 ```
 
 ### 2. System 初始化
-这是系统注册后立即调用的第一个方法。 一旦脚本在世界上加载，该方法将立即被执行。
 您可以使用它来设置脚本的环境：注册自定义组件和事件，注册事件侦听器等。此操作将在世界准备好并将播放器添加到其中之前运行。 此函数应用于初始化变量和设置事件侦听器。此时，您不应该在此处生成任何实体或与之交互！您还应该避免在此处将GUI元素或将消息发送到聊天窗口，因为这是在玩家准备就绪之前调用的。
 #### 示例代码 {docsify-ignore}
 ```javascript
@@ -108,7 +99,7 @@ sampleSystem.initialize = function() {
 };
 ```
 ### 3. System 更新
-游戏的每个Tick都会调用该方法一次，服务端每秒会“Tick”20次。可以在这里获取，检查组件变化并对之做出响应的好地方。
+
 ```javascript
 sampleSystem.update = function() {
   // 在这里执行事件更新
@@ -116,7 +107,7 @@ sampleSystem.update = function() {
 ```
 
 ### 4. System 关闭
-当Minecraft脚本引擎关闭时，将调用此方法。对于客户端来说，这就是玩家退出世界的时候。对于服务器，这是最后一个玩家退出世界的时候。
+
 ## 自定义组件
 自定义组件是一种特殊的组件，可以在脚本中进行定义。<br>
 该组件需要通过提供名称和一组名称为"value:value"的字段向脚本引擎注册。应用后，该组件的行为就像任何内置组件一样：您可以从实体中获取它，修改其值并应用更改。<br>
@@ -128,8 +119,6 @@ this.registerComponent("myNamespace:myComponent", { myString: "TamerJeison", myI
 ```
 
 ## 调试
-您的脚本无法正常工作？不用担心！我们已在脚本引擎中内置了一些调试功能，可能帮助您了解脚本无法工作的基本原因。<br>
-如果您不熟悉编程或想了解有关调试的更多信息，建议您查看以下有关使用VisualStudio进行调试的文档：https://docs.microsoft.com/visualstudio/debugger<br><br>
 有两种方法可以“调试”脚本：在游戏内或高级，我们将在下面进行介绍。您只需要游戏和脚本即可在游戏中进行调试，如果想使用高级调试，您需要一台装有Windows 10和Visual Studio的电脑进行高级调试。
 ### 在游戏内 {docsify-ignore}
 当您在游戏中运行脚本时，只要出现问题，脚本引擎就会输出错误消息。例如，如果您尝试获取脚本引擎不知道的组件，就会出现错误。<br>
