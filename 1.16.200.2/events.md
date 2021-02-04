@@ -260,7 +260,7 @@ damage | 整数 | 实体在获得免疫力和防具后受到的伤害
 entity | JavaScript实体对象 | 被伤害的实体
 projectile_type | 字符串 | 仅在被弹射物伤害时出现。这是命中实体的弹射物的标识符
 
-## 11. minecraft:entity_move
+#### 11. minecraft:entity_move
 
 名称 | 类型 | 备注
 -|-|-
