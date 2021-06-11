@@ -11,5 +11,4 @@ Telegram [>>吹水摸鱼群](https://t.me/vjsdt) <br>
 ## Recommend {docsify-ignore}
 ***
 推荐老狐狸JavaScript文档 [>> Mozilla](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript)<br>
-**最佳**ScriptingSupport——[ElementZero](https://github.com/Element-0/ElementZero)，**无视**脚本平台限制，好用到违反广告法！<br>
 ***
